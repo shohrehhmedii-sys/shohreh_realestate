@@ -6,6 +6,8 @@
    <title>Shohreh Hamedi | MLK Invest</title>
    <script src="https://cdn.tailwindcss.com"></script>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <!-- Required to convert the .heic format so browsers can show your photo -->
+   <script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
    <style>
        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300&family=Montserrat:wght@200;400&display=swap');
        :root { --gold: #c5a059; --black: #0a0a0a; }
@@ -13,27 +15,48 @@
        .serif { font-family: 'Cormorant Garamond', serif; }
        section { height: 100vh; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; text-align: center; overflow: hidden; scroll-snap-align: start; }
        .bg-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
-       .overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(10,10,10,0.1), rgba(10,10,10,0.9)); z-index: 1; }
+       .overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(10,10,10,0.2), rgba(10,10,10,0.9)); z-index: 1; }
        .content { position: relative; z-index: 2; width: 100%; padding: 2rem; max-width: 600px; }
        .gold-line { width: 40px; height: 1px; background: var(--gold); margin: 1.5rem auto; }
-       input, textarea { background: transparent !important; border: none !important; border-bottom: 1px solid rgba(255,255,255,0.2) !important; color: #fff !important; padding: 1rem 0 !important; margin-bottom: 1rem !important; width: 100%; font-size: 16px !important; border-radius: 0 !important; }
-       .btn-luxury { border: 1px solid var(--gold); color: var(--gold); padding: 1.2rem; text-transform: uppercase; letter-spacing: 4px; font-size: 10px; margin-top: 1rem; width: 100%; display: block; background: transparent; cursor: pointer; }
+       
+       input, textarea {
+           background: transparent !important;
+           border: none !important;
+           border-bottom: 1px solid rgba(255,255,255,0.2) !important;
+           color: #fff !important;
+           padding: 12px 0 !important;
+           margin-bottom: 10px !important;
+           width: 100%;
+           font-size: 16px !important;
+           border-radius: 0 !important;
+       }
+       .btn-luxury {
+           border: 1px solid var(--gold);
+           color: var(--gold);
+           padding: 1.2rem;
+           text-transform: uppercase;
+           letter-spacing: 4px;
+           font-size: 10px;
+           width: 100%;
+           background: transparent;
+           margin-top: 20px;
+       }
    </style>
 </head>
 <body>
 
-   <!-- Hero Slide with your Photo -->
+   <!-- Section 1: Profile -->
    <section>
-       <img src="shohreh.jpg.heic" class="bg-img" alt="Shohreh Hamedi">
+       <img id="profile-img" src="shohreh.jpg.heic" class="bg-img" alt="Shohreh Hamedi">
        <div class="overlay" style="background: linear-gradient(to top, #0a0a0a 25%, transparent 100%)"></div>
        <div class="content mt-auto mb-20">
-           <h1 class="serif text-6xl font-light tracking-tight mb-2">Shohreh Hamedi</h1>
+           <h1 class="serif text-6xl font-light mb-2">Shohreh Hamedi</h1>
            <div class="gold-line"></div>
            <p class="uppercase tracking-[0.4em] text-[10px] text-zinc-400">Sales Manager • MLK Invest</p>
        </div>
    </section>
 
-   <!-- Content Slides -->
+   <!-- Section 2: Istanbul -->
    <section>
        <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&q=80&w=1200" class="bg-img">
        <div class="overlay"></div>
@@ -44,6 +67,7 @@
        </div>
    </section>
 
+   <!-- Section 3: Dubai -->
    <section>
        <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&q=80&w=1200" class="bg-img">
        <div class="overlay"></div>
@@ -54,22 +78,38 @@
        </div>
    </section>
 
-   <!-- Inquiry Slide -->
-   <section style="background: #0d0d0d;">
-       <div class="content px-10">
-           <h2 class="serif text-4xl mb-12">Private Inquiry</h2>
-           <input type="text" id="name" placeholder="Full Name">
-           <input type="tel" id="whatsapp" placeholder="WhatsApp Number">
-           <textarea id="note" placeholder="How can I assist you?"></textarea>
-           <button onclick="send()" class="btn-luxury">Submit Inquiry</button>
+   <!-- Section 4: Bio Text (Updated for Worldwide Clients) -->
+   <section style="background: #0a0a0a;">
+       <div class="content">
+           <span class="serif italic text-2xl mb-6 block text-[#c5a059]">Personal Mastery</span>
+           <h2 class="serif text-4xl mb-8">A Decade of Excellence</h2>
+           <p class="text-zinc-400 text-sm leading-loose px-6 font-light">
+               10 years of mastery in luxury real estate, providing tailored investment strategies for the global elite.
+           </p>
+           <div class="gold-line"></div>
        </div>
    </section>
 
-   <!-- Contact Slide -->
+   <!-- Section 5: Inquiry Form -->
+   <section style="background: #0d0d0d;">
+       <div class="content px-8">
+           <h2 class="serif text-4xl mb-12">Private Inquiry</h2>
+           <input type="text" id="name" placeholder="Full Name">
+           <input type="tel" id="whatsapp" placeholder="WhatsApp Number">
+           <textarea id="note" placeholder="How can I assist you?" rows="3"></textarea>
+           <button onclick="sendInquiry()" class="btn-luxury">Submit Inquiry</button>
+       </div>
+   </section>
+
+   <!-- Section 6: Contact & Email -->
    <section>
        <div class="content">
            <h2 class="serif text-5xl mb-12">Contact</h2>
-           <a href="tel:+905010808181" class="text-2xl font-light block tracking-widest">+90 501 080 81 81</a>
+           <div class="flex flex-col space-y-4">
+               <a href="tel:+905010808181" class="text-2xl font-light block tracking-widest">+90 501 080 81 81</a>
+               <a href="mailto:Shohrehrealstate@gmail.com" class="text-lg font-light block tracking-widest text-zinc-400">Shohrehrealstate@gmail.com</a>
+           </div>
+           
            <div class="flex justify-center space-x-12 pt-12">
                <a href="https://instagram.com/shohreh_hamedii" target="_blank" class="text-3xl text-[#c5a059]"><i class="fa-brands fa-instagram"></i></a>
                <a href="https://wa.me/905010808181" target="_blank" class="text-3xl text-[#c5a059]"><i class="fa-brands fa-whatsapp"></i></a>
@@ -79,14 +119,28 @@
    </section>
 
    <script>
-       function send() {
+       function sendInquiry() {
            const n = document.getElementById('name').value;
            const p = document.getElementById('whatsapp').value;
            const m = document.getElementById('note').value;
-           if(!n || !p) { alert("Please enter your name and phone."); return; }
-           const msg = `*PORTFOLIO INQUIRY*\nName: ${n}\nPhone: ${p}\nMessage: ${m}`;
+           if(!n || !p) { alert("Please enter contact details."); return; }
+           const msg = `*New Inquiry*\nName: ${n}\nPhone: ${p}\nMessage: ${m}`;
            window.open(`https://wa.me/905010808181?text=${encodeURIComponent(msg)}`, '_blank');
        }
+
+       window.addEventListener('load', function() {
+           const img = document.getElementById('profile-img');
+           const originalSrc = img.src;
+           if (originalSrc.toLowerCase().endsWith('.heic')) {
+               fetch(originalSrc)
+                   .then(res => res.blob())
+                   .then(blob => heic2any({ blob, toType: "image/jpeg" }))
+                   .then(conv => {
+                       img.src = URL.createObjectURL(conv);
+                   })
+                   .catch(e => console.error("HEIC display error:", e));
+           }
+       });
    </script>
 </body>
 </html>
