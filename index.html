@@ -1,127 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-   <title>Shohreh Hamedi | MLK Invest</title>
-   <script src="https://cdn.tailwindcss.com"></script>
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-   <style>
-       @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@200;400;500&display=swap');
-       
-       :root {
-           --gold: #c5a059;
-           --black: #0a0a0a;
-           --zinc: #1a1a1a;
-       }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Shohreh Hamedi | MLK Invest</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@200;400;500&display=swap');
+     
+      :root {
+          --gold: #c5a059;
+          --black: #0a0a0a;
+          --zinc: #1a1a1a;
+      }
 
-       body {
-           background-color: var(--black);
-           color: #fff;
-           font-family: 'Montserrat', sans-serif;
-           margin: 0;
-           overflow-x: hidden;
-           scroll-behavior: smooth;
-       }
+      body {
+          background-color: var(--black);
+          color: #fff;
+          font-family: 'Montserrat', sans-serif;
+          margin: 0;
+          overflow-x: hidden;
+          scroll-snap-type: y mandatory;
+      }
 
-       .serif { font-family: 'Cormorant Garamond', serif; }
-       
-       /* Full Page Slides */
-       section {
-           height: 100vh;
-           width: 100%;
-           display: flex;
-           flex-direction: column;
-           justify-content: center;
-           align-items: center;
-           position: relative;
-           padding: 2rem;
-           text-align: center;
-           overflow: hidden;
-           border-bottom: 1px solid rgba(197, 160, 89, 0.1);
-       }
+      .serif { font-family: 'Cormorant Garamond', serif; }
+     
+      section {
+          height: 100vh;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          padding: 2rem;
+          text-align: center;
+          overflow: hidden;
+          scroll-snap-align: start;
+      }
 
-       /* Sophisticated Backgrounds */
-       .bg-overlay {
-           position: absolute;
-           top: 0;
-           left: 0;
-           width: 100%;
-           height: 100%;
-           background: linear-gradient(to bottom, rgba(10,10,10,0.3), rgba(10,10,10,0.9));
-           z-index: 1;
-       }
+      .bg-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(to bottom, rgba(10,10,10,0.4), rgba(10,10,10,0.9));
+          z-index: 1;
+      }
 
-       .section-img {
-           position: absolute;
-           top: 0;
-           left: 0;
-           width: 100%;
-           height: 100%;
-           object-fit: cover;
-           z-index: 0;
-       }
+      .section-img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          z-index: 0;
+      }
 
-       .content {
-           position: relative;
-           z-index: 2;
-           width: 100%;
-           max-width: 600px;
-       }
+      .content {
+          position: relative;
+          z-index: 2;
+          width: 100%;
+          max-width: 600px;
+      }
 
-       .gold-line {
-           width: 40px;
-           height: 1px;
-           background: var(--gold);
-           margin: 1.5rem auto;
-       }
+      .gold-line {
+          width: 40px;
+          height: 1px;
+          background: var(--gold);
+          margin: 1.5rem auto;
+      }
 
-       /* Premium Form */
-       input, textarea {
-           background: transparent !important;
-           border: none !important;
-           border-bottom: 1px solid rgba(255,255,255,0.2) !important;
-           color: #fff !important;
-           padding: 1rem 0 !important;
-           margin-bottom: 1rem !important;
-           width: 100%;
-           font-size: 16px !important; /* Prevents iPhone zoom */
-           transition: border-color 0.3s;
-           border-radius: 0 !important;
-       }
+      input, textarea {
+          background: transparent !important;
+          border: none !important;
+          border-bottom: 1px solid rgba(255,255,255,0.2) !important;
+          color: #fff !important;
+          padding: 1rem 0 !important;
+          margin-bottom: 1.5rem !important;
+          width: 100%;
+          font-size: 16px !important;
+          transition: border-color 0.3s;
+          border-radius: 0 !important;
+      }
 
-       input:focus {
-           border-bottom-color: var(--gold) !important;
-           outline: none;
-       }
+      input:focus {
+          border-bottom-color: var(--gold) !important;
+          outline: none;
+      }
 
-       .btn-luxury {
-           border: 1px solid var(--gold);
-           color: var(--gold);
-           padding: 1.2rem 2.5rem;
-           text-transform: uppercase;
-           letter-spacing: 4px;
-           font-size: 10px;
-           font-weight: 600;
-           transition: all 0.4s;
-           margin-top: 1.5rem;
-           display: inline-block;
-           width: 100%;
-           cursor: pointer;
-       }
+      .btn-luxury {
+          border: 1px solid var(--gold);
+          color: var(--gold);
+          padding: 1.2rem 2.5rem;
+          text-transform: uppercase;
+          letter-spacing: 4px;
+          font-size: 10px;
+          font-weight: 600;
+          transition: all 0.4s;
+          margin-top: 2rem;
+          display: inline-block;
+          width: 100%;
+          cursor: pointer;
+      }
 
-       .btn-luxury:active {
-           background: var(--gold);
-           color: #000;
-       }
-   </style>
+      .btn-luxury:active {
+          background: var(--gold);
+          color: #000;
+      }
+  </style>
 </head>
 <body>
 
-  <!-- Page 1: Profile (Looks for shohreh.jpg in your GitHub) -->
-  <section id="profile">
-      <img src="shohreh.jpg" class="section-img" alt="Shohreh Hamedi">
-      <div class="bg-overlay" style="background: linear-gradient(to top, #0a0a0a 20%, transparent 100%)"></div>
+  <!-- Page 1: Profile -->
+  <section>
+      <img src="shohreh.jpg" class="section-img" alt="Shohreh Hamedi" onerror="this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1000'">
+      <div class="bg-overlay" style="background: linear-gradient(to top, #0a0a0a 15%, transparent 100%)"></div>
       <div class="content mt-auto mb-12">
           <h1 class="serif text-6xl font-light tracking-tight mb-2">Shohreh Hamedi</h1>
           <div class="gold-line"></div>
@@ -130,20 +127,20 @@
   </section>
 
   <!-- Page 2: Istanbul -->
-  <section id="istanbul">
+  <section>
       <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&q=80&w=1200" class="section-img">
       <div class="bg-overlay"></div>
       <div class="content">
           <h2 class="serif text-5xl mb-4 italic">Istanbul</h2>
           <p class="text-zinc-300 text-sm font-light leading-relaxed tracking-wide">
-              Bridging history and luxury. Exclusive Bosphorus mansions and high-end residential assets.
+              Bridging history and luxury. Exclusive Bosporus mansions and high-end residential assets.
           </p>
           <div class="gold-line"></div>
       </div>
   </section>
 
   <!-- Page 3: Dubai -->
-  <section id="dubai">
+  <section>
       <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&q=80&w=1200" class="section-img">
       <div class="bg-overlay"></div>
       <div class="content">
@@ -156,37 +153,36 @@
   </section>
 
   <!-- Page 4: Bio -->
-  <section id="bio" style="background: #0a0a0a;">
+  <section style="background: #0a0a0a;">
       <div class="content">
           <span class="gold-text serif italic text-2xl mb-6 block text-[#c5a059]">Personal Mastery</span>
           <h2 class="serif text-4xl mb-8">A Decade of Excellence</h2>
           <p class="text-zinc-400 text-sm leading-loose font-light px-4">
-              With 10 years specializing in the luxury sector, I provide tailored real estate strategies for the global Iranian elite. My approach combines deep market intelligence with a commitment to absolute discretion.
+              With 10 years specializing in the luxury sector, I provide tailored real estate strategies for the global Iranian elite.
           </p>
           <div class="gold-line"></div>
       </div>
   </section>
 
   <!-- Page 5: Request Form -->
-  <section id="inquiry" style="background: #0f0f0f;">
+  <section style="background: #0f0f0f;">
       <div class="content px-8">
           <h2 class="serif text-4xl mb-12">Private Inquiry</h2>
           <form id="inquiryForm">
               <input type="text" id="name" placeholder="Name" required>
-              <input type="email" id="email" placeholder="Email" required>
-              <input type="tel" id="phone" placeholder="Phone" required>
-              <textarea id="interest" rows="2" placeholder="What are you looking for?"></textarea>
+              <input type="tel" id="phone" placeholder="WhatsApp" required>
+              <textarea id="interest" rows="2" placeholder="Investment Interests"></textarea>
               <button type="button" onclick="handleInquiry()" class="btn-luxury">Submit Inquiry</button>
           </form>
       </div>
   </section>
 
   <!-- Page 6: Contact & Links -->
-  <section id="contact" style="background: #050505;">
+  <section style="background: #050505;">
       <div class="content">
           <h2 class="serif text-5xl mb-12">Contact</h2>
           <div class="space-y-8">
-              <a href="tel:+905010808181" class="text-2xl font-light block hover:text-[#c5a059] transition tracking-widest">+90 501 080 81 81</a>
+              <a href="tel:+905010808181" class="text-2xl font-light block tracking-widest">+90 501 080 81 81</a>
               <p class="text-zinc-500 text-xs tracking-widest uppercase">Shohrehrealstate@gmail.com</p>
              
               <div class="flex justify-center space-x-12 pt-12">
@@ -205,11 +201,11 @@
           const interest = document.getElementById('interest').value;
          
           if(!name || !phone) {
-              alert("Please provide your name and phone number.");
+              alert("Please provide your name and phone.");
               return;
           }
 
-          const text = `*VIP PROPERTY INQUIRY*\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Looking for:* ${interest}`;
+          const text = `*PORTFOLIO INQUIRY*\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Interest:* ${interest}`;
           window.open(`https://wa.me/905010808181?text=${encodeURIComponent(text)}`, '_blank');
       }
   </script>
