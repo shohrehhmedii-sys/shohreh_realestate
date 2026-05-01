@@ -1,79 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shohreh Hamedi | VIP Real Estate</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Prata&family=Montserrat:wght@200;400;700&display=swap');
-:root { --bg-neutral: #0e0d0c; --accent-gold: #d4af37; --cream: #f4f1ea; }
-body { background-color: var(--bg-neutral); color: var(--cream); font-family: 'Montserrat', sans-serif; scroll-behavior: smooth; }
-.serif-luxury { font-family: 'Prata', serif; }
-.gold-text { background: linear-gradient(to right, #d4af37, #f4d03f); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.glass-nav { background: rgba(14, 13, 12, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(212, 175, 55, 0.1); }
-.reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-.reveal.active { opacity: 1; transform: translateY(0); }
-.whatsapp-btn { position: fixed; bottom: 30px; right: 30px; background: #25D366; width: 55px; height: 55px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 26px; z-index: 100; box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
-.hero-image-container { mask-image: linear-gradient(to right, black 75%, transparent 100%); -webkit-mask-image: linear-gradient(to right, black 75%, transparent 100%); }
-</style>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+   <title>Shohreh Hamedi | MLK Invest</title>
+   <script src="https://cdn.tailwindcss.com"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <style>
+       @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@200;400;500&display=swap');
+       
+       :root {
+           --gold: #c5a059;
+           --black: #0a0a0a;
+           --zinc: #1a1a1a;
+       }
+
+       body {
+           background-color: var(--black);
+           color: #fff;
+           font-family: 'Montserrat', sans-serif;
+           margin: 0;
+           overflow-x: hidden;
+       }
+
+       .serif { font-family: 'Cormorant Garamond', serif; }
+       
+       /* Full Page Slides */
+       section {
+           height: 100vh;
+           width: 100%;
+           display: flex;
+           flex-direction: column;
+           justify-content: center;
+           align-items: center;
+           position: relative;
+           padding: 2rem;
+           text-align: center;
+           overflow: hidden;
+       }
+
+       /* Sophisticated Backgrounds */
+       .bg-overlay {
+           position: absolute;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 100%;
+           background: linear-gradient(to bottom, rgba(10,10,10,0.4), rgba(10,10,10,0.9));
+           z-index: 1;
+       }
+
+       .section-img {
+           position: absolute;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 100%;
+           object-fit: cover;
+           z-index: 0;
+       }
+
+       .content {
+           position: relative;
+           z-index: 2;
+           width: 100%;
+           max-width: 600px;
+       }
+
+       .gold-line {
+           width: 40px;
+           height: 1px;
+           background: var(--gold);
+           margin: 1.5rem auto;
+       }
+
+       /* Premium Form */
+       input, textarea {
+           background: transparent !important;
+           border: none !important;
+           border-bottom: 1px solid rgba(255,255,255,0.2) !important;
+           color: #fff !important;
+           padding: 1rem 0 !important;
+           margin-bottom: 1.5rem !important;
+           width: 100%;
+           font-size: 14px !important;
+           transition: border-color 0.3s;
+       }
+
+       input:focus {
+           border-bottom-color: var(--gold) !important;
+           outline: none;
+       }
+
+       .btn-luxury {
+           border: 1px solid var(--gold);
+           color: var(--gold);
+           padding: 1.2rem 2.5rem;
+           text-transform: uppercase;
+           letter-spacing: 4px;
+           font-size: 10px;
+           font-weight: 600;
+           transition: all 0.4s;
+           margin-top: 2rem;
+           display: inline-block;
+       }
+
+       .btn-luxury:active {
+           background: var(--gold);
+           color: #000;
+       }
+
+       /* Nav dots */
+       .nav-indicator {
+           position: fixed;
+           right: 20px;
+           top: 50%;
+           transform: translateY(-50%);
+           z-index: 100;
+           display: flex;
+           flex-direction: column;
+           gap: 15px;
+       }
+
+       .dot {
+           width: 6px;
+           height: 6px;
+           border-radius: 50%;
+           background: rgba(255,255,255,0.2);
+       }
+   </style>
 </head>
 <body>
-<a href="https://wa.me/905010808181" target="_blank" class="whatsapp-btn"><i class="fa-brands fa-whatsapp text-white"></i></a>
-<nav class="fixed top-0 w-full z-50 glass-nav px-6 py-4">
-<div class="max-w-7xl mx-auto flex justify-between items-center">
-<div class="flex items-center space-x-3">
-<img src="https://i.postimg.cc/t4G23z4K/IS-Logo.png" alt="Logo" class="h-10 invert brightness-200">
-<span class="serif-luxury text-xs tracking-[0.2em] font-bold hidden sm:block uppercase">Shohreh Hamedi</span>
-</div>
-<div class="flex items-center space-x-6">
-<a href="https://instagram.com/shohreh_hamedii" target="_blank" class="text-lg hover:text-[#d4af37] transition-colors"><i class="fa-brands fa-instagram"></i></a>
-<a href="#contact" class="bg-[#d4af37] text-black px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest">Consult</a>
-</div>
-</div>
-</nav>
-<section class="relative min-h-screen flex items-center pt-16 overflow-hidden">
-<div class="absolute inset-y-0 right-0 w-full lg:w-2/3 z-0">
-<div class="absolute inset-0 bg-[#0e0d0c]/10 z-10"></div>
-<img src="https://i.postimg.cc/9FmKqS6P/Shohreh-Portrait.jpg" class="w-full h-full object-cover object-top hero-image-container" alt="Shohreh Hamedi">
-</div>
-<div class="relative z-30 max-w-7xl mx-auto px-8 w-full">
-<div class="max-w-xl reveal">
-<p class="text-[#d4af37] text-[10px] uppercase tracking-[0.5em] mb-6 flex items-center"><span class="w-8 h-[1px] bg-[#d4af37] mr-4"></span> Istanbul • Dubai</p>
-<h1 class="serif-luxury text-6xl md:text-8xl leading-none mb-8">Pure 
-<span class="gold-text">Excellence.</span></h1>
-<p class="text-zinc-400 text-lg font-light mb-12 leading-relaxed">Sales Manager at <span class="text-white font-bold">MLK Invest</span>. Dedicated to providing elite real estate solutions for the Iranian community with 10 years of market expertise.</p>
-<div class="flex flex-wrap gap-4">
-<a href="https://wa.me/905010808181" class="bg-[#d4af37] text-black px-10 py-5 rounded-full font-bold uppercase text-[10px] tracking-widest hover:brightness-110 transition-all">WhatsApp Me</a>
-<div class="flex items-center space-x-4 px-8 py-5 border border-zinc-800 rounded-full text-[10px] font-bold uppercase tracking-widest"><span>PER • TUR • ENG</span></div>
-</div>
-</div>
-</div>
-</section>
-<section id="properties" class="py-32 px-8 bg-[#121110]">
-<div class="max-w-7xl mx-auto">
-<div class="mb-20 reveal"><h2 class="serif-luxury text-4xl md:text-5xl mb-6">Curated <span class="gold-text">Gallery</span></h2><p class="text-zinc-500 text-sm tracking-[0.3em] uppercase">Luxury Residential & Investment</p></div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-<div class="relative group overflow-hidden rounded-[2rem] h-[450px] reveal"><img src="https://images.unsplash.com/photo-1600607687940-4e524cb56597?auto=format&fit=crop&q=80&w=1200" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Villa"><div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex flex-col justify-end p-10"><h3 class="serif-luxury text-2xl">Dubai Collection</h3></div></div>
-<div class="relative group overflow-hidden rounded-[2rem] h-[450px] reveal delay-100"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Istanbul"><div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex flex-col justify-end p-10"><h3 class="serif-luxury text-2xl">Istanbul Elite Suites</h3></div></div>
-</div>
-</div>
-</section>
-<section id="contact" class="py-32 px-8">
-<div class="max-w-4xl mx-auto text-center">
-<img src="https://i.postimg.cc/t4G23z4K/IS-Logo.png" class="h-24 mx-auto mb-12 invert brightness-200" alt="Logo">
-<h2 class="serif-luxury text-5xl mb-16 reveal">Private Consultation</h2>
-<div class="grid md:grid-cols-2 gap-6 text-left reveal">
-<a href="tel:+905010808181" class="p-8 bg-zinc-900 rounded-3xl border border-zinc-800 hover:border-[#d4af37] transition-all"><p class="text-[10px] uppercase tracking-widest text-zinc-500 mb-2">Direct Line</p><p class="text-xl font-bold">+90 501 080 81 81</p></a>
-<a href="mailto:Shohrehrealstate@gmail.com" class="p-8 bg-zinc-900 rounded-3xl border border-zinc-800 hover:border-[#d4af37] transition-all"><p class="text-[10px] uppercase tracking-widest text-zinc-500 mb-2">Email Inquiry</p><p class="text-lg font-bold">Shohrehrealstate@gmail.com</p></a>
-</div>
-</div>
-</section>
-<footer class="py-16 text-center border-t border-zinc-900"><p class="text-zinc-600 text-[9px] uppercase tracking-[0.5em]">© 2026 Shohreh Hamedi | Sales Manager @ MLK Invest</p></footer>
-<script>
-function reveal() { var reveals = document.querySelectorAll(".reveal"); for (var i = 0; i < reveals.length; i++) { var windowHeight = window.innerHeight; var elementTop = reveals[i].getBoundingClientRect().top; if (elementTop < windowHeight - 100) { reveals[i].classList.add("active"); } } }
-window.addEventListener("scroll", reveal); window.addEventListener("load", reveal);
-</script>
+
+   <div class="nav-indicator hidden md:flex">
+       <div class="dot" style="background: var(--gold)"></div>
+       <div class="dot"></div>
+       <div class="dot"></div>
+       <div class="dot"></div>
+       <div class="dot"></div>
+       <div class="dot"></div>
+   </div>
+
+   <!-- Page 1: Profile (Looks for shohreh.jpg) -->
+   <section>
+       <img src="shohreh.jpg" class="section-img" alt="Shohreh Hamedi">
+       <div class="bg-overlay" style="background: linear-gradient(to top, #0a0a0a 15%, transparent 100%)"></div>
+       <div class="content mt-auto mb-12">
+           <h1 class="serif text-6xl font-light tracking-tight mb-2">Shohreh Hamedi</h1>
+           <div class="gold-line"></div>
+           <p class="uppercase tracking-[0.4em] text-[10px] text-zinc-400">Sales Manager • MLK Invest</p>
+       </div>
+   </section>
+
+   <!-- Page 2: Istanbul -->
+   <section>
+       <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&q=80&w=1200" class="section-img">
+       <div class="bg-overlay"></div>
+       <div class="content">
+           <h2 class="serif text-5xl mb-4 italic">Istanbul</h2>
+           <p class="text-zinc-300 text-sm font-light leading-relaxed tracking-wide">
+               Bridging history and luxury. Exclusive Bosporus mansions and high-end residential assets.
+           </p>
+           <div class="gold-line"></div>
+       </div>
+   </section>
+
+   <!-- Page 3: Dubai -->
+   <section>
+       <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&q=80&w=1200" class="section-img">
+       <div class="bg-overlay"></div>
+       <div class="content">
+           <h2 class="serif text-5xl mb-4 italic">Dubai</h2>
+           <p class="text-zinc-300 text-sm font-light leading-relaxed tracking-wide">
+               The pinnacle of modern investment. Waterfront penthouses in the world's most dynamic market.
+           </p>
+           <div class="gold-line"></div>
+       </div>
+   </section>
+
+   <!-- Page 4: Bio -->
+   <section style="background: #0a0a0a;">
+       <div class="content">
+           <span class="gold-text serif italic text-2xl mb-6 block">Personal Mastery</span>
+           <h2 class="serif text-4xl mb-8">A Decade of Excellence</h2>
+           <p class="text-zinc-400 text-sm leading-loose font-light px-4">
+               With 10 years specializing in the luxury sector, I provide tailored real estate strategies for the global Iranian elite. My approach combines deep market intelligence with a commitment to absolute discretion.
+           </p>
+           <div class="gold-line"></div>
+       </div>
+   </section>
+
+   <!-- Page 5: Request Form -->
+   <section style="background: #0f0f0f;">
+       <div class="content px-8">
+           <h2 class="serif text-4xl mb-12">Private Inquiry</h2>
+           <form id="inquiryForm">
+               <input type="text" id="name" placeholder="Name" required>
+               <input type="email" id="email" placeholder="Email" required>
+               <input type="tel" id="phone" placeholder="Phone" required>
+               <textarea id="interest" rows="2" placeholder="Investment Interests"></textarea>
+               <button type="button" onclick="handleInquiry()" class="btn-luxury">Submit Inquiry</button>
+           </form>
+       </div>
+   </section>
+
+   <!-- Page 6: Contact & Links -->
+   <section style="background: #050505;">
+       <div class="content">
+           <h2 class="serif text-5xl mb-12">Contact</h2>
+           <div class="space-y-8">
+               <a href="tel:+905010808181" class="text-2xl font-light block hover:text-[#c5a059] transition">+90 501 080 81 81</a>
+               <p class="text-zinc-500 text-xs tracking-widest uppercase">Shohrehrealstate@gmail.com</p>
+               
+               <div class="flex justify-center space-x-12 pt-12">
+                   <a href="https://instagram.com/shohreh_hamedii" target="_blank" class="text-3xl"><i class="fa-brands fa-instagram"></i></a>
+                   <a href="https://wa.me/905010808181" target="_blank" class="text-3xl"><i class="fa-brands fa-whatsapp"></i></a>
+               </div>
+           </div>
+           <p class="mt-24 text-[8px] text-zinc-700 tracking-[0.8em] uppercase">MLK Invest Istanbul</p>
+       </div>
+   </section>
+
+   <script>
+       function handleInquiry() {
+           const name = document.getElementById('name').value;
+           const phone = document.getElementById('phone').value;
+           const interest = document.getElementById('interest').value;
+           
+           if(!name || !phone) {
+               alert("Identification required for private briefing.");
+               return;
+           }
+
+           const text = `*PORTFOLIO INQUIRY*\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Interest:* ${interest}`;
+           window.open(`https://wa.me/905010808181?text=${encodeURIComponent(text)}`, '_blank');
+       }
+   </script>
 </body>
 </html>
